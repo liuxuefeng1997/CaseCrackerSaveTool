@@ -1,38 +1,37 @@
 @echo off
-chcp 65001
-title ã€ŠçœŸæ¢ã€‹ç³»åˆ—å­˜æ¡£æ¸…é™¤å·¥å…·
+title ¡¶ÕæÌ½¡·ÏµÁĞ´æµµÇå³ı¹¤¾ß
 
 :main
 set user_input=
 cls
 echo.
-echo ã€ŠçœŸæ¢ã€‹ç³»åˆ—å­˜æ¡£æ¸…é™¤å·¥å…·
+echo ¡¶ÕæÌ½¡·ÏµÁĞ´æµµÇå³ı¹¤¾ß
 echo.
-echo 1ã€çœŸæ¢
-echo 2ã€çœŸæ¢2
-echo Qã€é€€å‡ºå·¥å…·
+echo 1¡¢ÕæÌ½
+echo 2¡¢ÕæÌ½2
+echo Q¡¢ÍË³ö¹¤¾ß
 echo.
-set /p user_input=è¯·é€‰æ‹©æ¸¸æˆç‰ˆæœ¬ï¼š
+set /p user_input=ÇëÑ¡ÔñÓÎÏ·°æ±¾£º
 if not defined user_input goto:main
 if %user_input% equ 1 set games=CaseCracker
 if %user_input% equ 2 set games=CaseCracker2
 if %user_input% equ Q exit
 if %user_input% equ q exit
 if not defined games goto:main
-if %games% equ CaseCracker set game_name=çœŸæ¢
-if %games% equ CaseCracker2 set game_name=çœŸæ¢2
+if %games% equ CaseCracker set game_name=ÕæÌ½
+if %games% equ CaseCracker2 set game_name=ÕæÌ½2
 
 cd %localappdata%Low\BlackRobe\%games%\Save
 
-title ã€Š%game_name%ã€‹å­˜æ¡£æ¸…é™¤å·¥å…·
-set s_tip=æ¸…é™¤æ“ä½œå·²å–æ¶ˆ
-set del_save_status=Ã—
-set del_note_status=Ã—
+title ¡¶%game_name%¡·´æµµÇå³ı¹¤¾ß
+set s_tip=Çå³ı²Ù×÷ÒÑÈ¡Ïû
+set del_save_status=¡Á
+set del_note_status=¡Á
 
 :menu_save
 set user_input=
 cls
-set /p user_input=æ­¤æ“ä½œå°†æ¸…é™¤æ¸¸æˆå­˜æ¡£ï¼Œç¡®è®¤ç»§ç»­å—ï¼Ÿï¼ˆY/[N]ï¼‰ï¼š
+set /p user_input=´Ë²Ù×÷½«Çå³ıÓÎÏ·´æµµ£¬È·ÈÏ¼ÌĞøÂğ£¿£¨Y/[N]£©£º
 if not defined user_input goto:finish
 if %user_input% equ Y goto del_save
 if %user_input% equ y goto del_save
@@ -44,13 +43,13 @@ del *.sav
 del PreHelpContent
 del *.vdf
 ren Note.bak Note.sav
-set s_tip=æ‚¨é€‰æ‹©çš„å†…å®¹å·²æ¸…é™¤
-set del_save_status=âˆš
+set s_tip=ÄúÑ¡ÔñµÄÄÚÈİÒÑÇå³ı
+set del_save_status=¡Ì
 
 :menu_note
 set user_input=
 cls
-set /p user_input=å·²æ¸…é™¤å­˜æ¡£ï¼Œæ˜¯å¦åŒæ—¶åˆ é™¤ç¬”è®°ï¼Ÿï¼ˆY/[N]ï¼‰ï¼š
+set /p user_input=ÒÑÇå³ı´æµµ£¬ÊÇ·ñÍ¬Ê±É¾³ı±Ê¼Ç£¿£¨Y/[N]£©£º
 if not defined user_input goto:finish
 if %user_input% equ Y goto del_note
 if %user_input% equ y goto del_note
@@ -58,15 +57,16 @@ goto finish
 
 :del_note
 del *.sav
-set s_tip=å…¨éƒ¨å†…å®¹å·²æ¸…é™¤
-set del_note_status=âˆš
+set s_tip=È«²¿ÄÚÈİÒÑÇå³ı
+set del_note_status=¡Ì
 
 :finish
 cls
 echo %s_tip%
-if %s_tip% equ æ¸…é™¤æ“ä½œå·²å–æ¶ˆ goto  skip_status
-echo ã€‹å­˜æ¡£..........%del_save_status%
-echo ã€‹ç¬”è®°..........%del_note_status%
+if %s_tip% equ Çå³ı²Ù×÷ÒÑÈ¡Ïû goto  skip_status
+echo ¡·´æµµ..........%del_save_status%
+echo ¡·±Ê¼Ç..........%del_note_status%
 :skip_status
 pause
 exit
+
